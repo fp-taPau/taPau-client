@@ -1,0 +1,185 @@
+[
+	{
+		"id": "1",
+		"name": "Burger King",
+		"area": "Bedok",
+		"minimumOrder": 8.00,
+		"deliveryFee": 0.50,
+		"priceRating": 1,
+		"rating": 4.5,
+		"numberRated": 500,
+		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cz1ow-listing.jpg?width=400&height=225",
+		"foodTypes": [
+			"Fast Food",
+			"American",
+			"Burger"
+		],
+		"item": [
+			{
+				"id": "1",
+				"name": "Double BBQ Turkey Bacon Meal",
+				"description": "Not one, but two mouth-watering, flame-grilled beef patties topped with...",
+				"price": 11.30,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/burgerking_rg_sg_v2/b777f2ef04ed1fe09b66f557fd61d41b.png?width=150&height=150"
+			},
+			{
+				"id": "2",
+				"name": "Hersheys Sundae Pie",
+				"description": "Crunchy chocolate crust, with chocolate ice cream filling and topped with...",
+				"price": 4.54,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/burgerking_rg_sg_v2/e8c3e65353fba2c94b2075e0eadc8b9c.jpg?width=150&height=150"
+			},
+			{
+				"id": "3",
+				"name": "Long Chicken Meal",
+				"description": "Delightfully tasty chicken topped with shredded lettuce and creamy mayo...",
+				"price": 9.50,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/burgerking_rg_sg_v2/cbc6e2824390eab55fe738440dbbfb3b.png?width=150&height=150"
+			},
+			{
+				"id": "4",
+				"name": "Whopper Meal",
+				"description": "Flame-grilled WHOPPER® beef patty that is full of flavors and free from...",
+				"price": 10.98,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/burgerking_rg_sg_v2/3c312e387afe7af1c8db39940f9ba648.png?width=150&height=150"
+			}
+		]
+	},
+	{
+		"id": "2",
+		"name": "Takagi Ramen",
+		"area": "Bedok",
+		"minimumOrder": 12.00,
+		"deliveryFee": 0.70,
+		"priceRating": 2,
+		"rating": 4.8,
+		"numberRated": 100,
+		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cr3su-listing.jpg?width=400&height=225",
+		"foodTypes": [
+			"Japanese",
+			"Ramen"
+		],
+		"item": [
+			{
+				"id": "5",
+				"name": "Takagi Ramen",
+				"description": "Original Tonkotsu Broth Ramen Served with 2 Slices of Chashu, Spring...",
+				"price": 7.92,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/Everyware_TakagiRamen_SG/783f6de8312acb7ca00848c885e44dcb.jpg?width=150&height=150"
+			},
+			{
+				"id": "6",
+				"name": "Christmas Smoked Ham and Duck",
+				"description": "Warm up this holiday season with our Smoked Ham and Duck Ramen, the...",
+				"price": 11.92,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/Everyware_TakagiRamen_SG/b922d77ab7ea760b4b276114f8fb9ba3.jpg?width=150&height=150"
+			},
+			{
+				"id": "7",
+				"name": "Karaka Ramen",
+				"description": "Spicy Tonkotsu Broth Ramen Served with 2 Slices of Chashu, Seaweed...",
+				"price": 9.20,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/Everyware_TakagiRamen_SG/18c15e574ff29a594a7d1c06cdc708ad.jpg?width=150&height=150"
+			},
+			{
+				"id": "8",
+				"name": "Black Tonkotsu",
+				"description": "Roasted Black Garlic Tonkotsu Broth Ramen Served with 2 Slices of Chashu...",
+				"price": 9.20,
+				"imageUrl": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/Everyware_TakagiRamen_SG/4862ad9196b43c336917fb03396392e2.jpg?width=150&height=150"
+			}
+		]
+	},
+	{
+		"id": "3",
+		"name": "My Curry Rice",
+		"area": "Bedok",
+		"minimumOrder": 6.00,
+		"deliveryFee": 0.5,
+		"priceRating": 1,
+		"rating": 4.3,
+		"numberRated": 320,
+		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/s34n-listing.jpg?width=400&height=225",
+		"foodTypes": [
+			"Indian",
+			"Rice",
+			"Curry"
+		],
+		"item": [
+			{
+				"id": "9",
+				"name": "Fish Fillet Hainanese Curry Rice",
+				"description": "Fried fish fillet",
+				"price": 7.60,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/35422879.jpg?width=150&height=150"
+			},
+			{
+				"id": "10",
+				"name": "Chicken Fillet Hainanese Curry Rice",
+				"description": "Fried chicken katsu",
+				"price": 7.60,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/23041361.jpg?width=150&height=150"
+			},
+			{
+				"id": "11",
+				"name": "The Jumbo Set",
+				"description": "A large meal combo featuring a variety of dishes, perfect for sharing or in...",
+				"price": 8.40,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/23041387.jpg?width=150&height=150"
+			},
+			{
+				"id": "12",
+				"name": "Nasi Lemak Ayam Taliwang",
+				"description": "Spicy Indonesian chicken with coconut rice, peanuts, anchovies, and sambal.",
+				"price": 7.44,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/23041388.jpg?width=150&height=150"
+			}
+		]
+	},
+	{
+		"id": "4",
+		"name": "Aladdin's Castle",
+		"area": "Bedok",
+		"minimumOrder": 12.00,
+		"deliveryFee": 0.70,
+		"priceRating": 2,
+		"rating": 4.7,
+		"numberRated": 1000,
+		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/ysug-listing.jpg?width=400&height=225",
+		"foodTypes": [
+			"Indian",
+			"Roti",
+			"Prata"
+		],
+		"item": [
+			{
+				"id": "13",
+				"name": "Plain Prata",
+				"description": "1 Set. Min 2 pcs",
+				"price": 2.80,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/52579242.jpg?width=150&height=150"
+			},
+			{
+				"id": "14",
+				"name": "Masala Thosai",
+				"description": "Thosai",
+				"price": 4.32,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/52579248.jpg?width=150&height=150"
+			},
+			{
+				"id": "15",
+				"name": "Mutton Prata",
+				"description": "1 Set. Min 2 pcs",
+				"price": 5.80,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/52579249.jpg?width=150&height=150"
+			},
+			{
+				"id": "16",
+				"name": "Mutton Masala",
+				"description": "Mutton and curry",
+				"price": 5.50,
+				"imageUrl": "https://images.deliveryhero.io/image/fd-sg/Products/52579250.jpg?width=150&height=150"
+			}
+		]
+	}
+]
