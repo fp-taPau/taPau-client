@@ -17,6 +17,7 @@ export default {
         40: "10rem", // adds spacing of 40 (160px)
         50: "12.5rem", // adds spacing of 50 (200px)
         55: "13.75rem", // adds spacing of 55 (220px)
+        100: "25rem", // adds spacing of 100 (400px)
       },
       colors: {
         background: "var(--background)",
