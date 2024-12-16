@@ -4,22 +4,22 @@ import Link from "next/link";
 const Header = ({
   logoUrl = "/assets/image/header-logo.png", // Default logo path in public folder
   links = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Hi, User!", href: "/" },
+    { label: "Likes (HEART)", href: "/" },
+    { label: "Cart", href: "/" },
   ],
 }) => {
   return (
     <header className="bg-white shadow-md py-4">
       <div className="container mx-auto flex items-center justify-between px-2">
         {/* Logo and Brand Name */}
-        <div className="flex items-center space-x-2 w-35">
+        <a href="/" className="flex items-center space-x-2 w-35">
           {logoUrl ? (
             <img src={logoUrl} alt="Logo" className="object-contain" />
           ) : (
             <h1>Missing Image</h1>
           )}
-        </div>
+        </a>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-4">
