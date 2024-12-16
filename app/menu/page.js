@@ -43,7 +43,7 @@ const Menu = ({ restaurant = defaultRestaurant }) => {
           </div>
         </div>
       </header>
-      <MenuItems />
+      <MenuItems restaurant={restaurant} />
     </>
   );
 };
