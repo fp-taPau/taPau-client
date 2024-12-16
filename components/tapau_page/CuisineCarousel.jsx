@@ -35,7 +35,7 @@ const responsive = {
 
 const CuisineCarousel = () => {
   return (
-    <div className="flex justify-center items-center h-full w-full">
+    <div className="items-center h-full w-full">
       <Carousel
         swipeable
         draggable
