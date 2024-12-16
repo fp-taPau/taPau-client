@@ -8,6 +8,9 @@ export default {
   theme: {
     extend: {
       spacing: {
+        16: "4rem", // adds spacing of 16 (64px)
+        18: "4.5rem", // adds spacing of 18 (72px)
+        20: "5rem", // adds spacing of 20 (80px)
         25: "6.25rem", // adds spacing of 25 (100px)
         30: "7.5rem", // adds spacing of 30 (120px)
         35: "8.75rem", // adds spacing of 35 (140px)
@@ -18,6 +21,7 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        partyPink: "var(--party-pink)",
       },
     },
   },
