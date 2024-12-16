@@ -5,7 +5,11 @@ export default function HomePage() {
     <>
       <Header logoUrl="/assets/images/header-logo.png" />
       <main>
-        <h1>Welcome to Foodpanda!</h1>
+        <img
+          src="/assets/images/tapau-together-banner.png"
+          alt="TaPau Together Banner"
+          className={"w-full flex items-center justify-between p-10 radius-2xl"}
+        />
       </main>
     </>
   );
