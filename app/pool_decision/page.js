@@ -15,13 +15,13 @@ export default function HomePage() {
           />
         </div>
         <div className="flex justify-center items-center w-full gap-x-100">
-        <button className="flex bg-partyPink hover:bg-pink-600 text-white font-bold py-5 px-20 rounded">
-          Yes. Match Me!
-        </button>
-        <button className="bg-partyPink hover:bg-pink-600 text-white font-bold py-5 px-20 rounded">
+          <button className="flex bg-partyPink hover:bg-pink-600 text-white font-bold py-5 px-20 rounded">
+            Yes. Match Me!
+          </button>
+          <button className="bg-partyPink hover:bg-pink-600 text-white font-bold py-5 px-20 rounded">
             No, browse first.
-        </button>
-      </div>
+          </button>
+        </div>
       </main>
     </>
   );
