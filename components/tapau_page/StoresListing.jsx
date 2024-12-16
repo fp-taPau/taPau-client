@@ -34,11 +34,11 @@ const StoresListing = () => {
                         className="text-gray-400 text-sm mb-4 w-6 h-6"
                         src="https://png.pngtree.com/png-clipart/20230101/original/pngtree-golden-star-icon-vector-clipart-png-image_8843722.png"
                       />
-                      <p className="text-gray-400 text-sm mb-4">
-                        {restaurant.rating}
-                      </p>
-                      <p className="text-gray-400 text-sm mb-4">
-                        ({restaurant.numberRated})
+                      <p className="text-[13px] mb-4 ml-1 font-bold">
+                        {restaurant.rating}/5{" "}
+                        <span className="font-light">
+                          ({restaurant.numberRated}+)
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -77,8 +77,8 @@ const StoresListing = () => {
                     </span>
                     <div className="flex flex-row items-center space-x-1">
                       <img
-                        className="text-gray-400 text-sm mb-4 w-6 h-6"
-                        src="https://www.svgrepo.com/show/426399/scooter.svg"
+                        className="text-black w-4 h-4 mr-1"
+                        src="https://www.svgrepo.com/show/490678/cycling.svg"
                       />
                       <p className="text-gray-400 text-sm -ml-1 mb-4">
                         {restaurant.deliveryFee}

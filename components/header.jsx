@@ -19,7 +19,7 @@ const Header = ({
   ],
 }) => {
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-white shadow-lg">
       <div className="flex items-center justify-between mx-18 mt-2">
         {/* Logo and Brand Name */}
         <a href="/" className="flex items-center space-x-2 w-35">
