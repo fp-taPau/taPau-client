@@ -34,7 +34,7 @@ const StoresListing = () => {
                         className="text-gray-400 text-sm mb-4 w-6 h-6"
                         src="https://png.pngtree.com/png-clipart/20230101/original/pngtree-golden-star-icon-vector-clipart-png-image_8843722.png"
                       />
-                      <p className="text-[13px] mb-4 ml-1 font-bold">
+                      <p className="text-[13px] mb-3 ml-1 font-bold">
                         {restaurant.rating}/5{" "}
                         <span className="font-light">
                           ({restaurant.numberRated}+)
@@ -62,26 +62,24 @@ const StoresListing = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="flex w-full space-x-2 font-bold text-xs mt-3">
+                  <div className="flex w-full space-x-2 font-bold text-[10px] mt-1 text-inactiveText">
                     <div className="flex flex-row items-center space-x-1">
                       <img
-                        className="text-gray-400 text-sm -ml-1 mb-4 w-6 h-6"
+                        className="text-sm -ml-1 mb-4 w-6 h-6"
                         src="https://www.svgrepo.com/show/424656/clock-pending-time.svg"
                       />
-                      <p className="text-gray-400 text-sm mb-4">
-                        {restaurant.deliveryTime}
-                      </p>
+                      <p className=" text-sm mb-4">{restaurant.deliveryTime}</p>
                     </div>
-                    <span className="font-bold mx-1 relative top-[-2px]">
+                    <span className="font-bold mx-1 relative top-[-5px] text-lg">
                       .
                     </span>
                     <div className="flex flex-row items-center space-x-1">
                       <img
-                        className="text-black w-4 h-4 mr-1"
+                        className="opacity-60 w-4 h-4 mr-1 mb-4"
                         src="https://www.svgrepo.com/show/490678/cycling.svg"
                       />
-                      <p className="text-gray-400 text-sm -ml-1 mb-4">
-                        {restaurant.deliveryFee}
+                      <p className=" text-sm -ml-1 mb-4">
+                        S$ {parseFloat(restaurant.deliveryFee).toFixed(2)}
                       </p>
                     </div>
                   </div>

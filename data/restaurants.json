@@ -5,7 +5,7 @@
 		"area": "Bedok",
 		"minimumOrder": 8.00,
 		"deliveryFee": 0.50,
-		"priceRating": 1,
+		"priceRating": "$",
 		"rating": 4.5,
 		"numberRated": 500,
 		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cz1ow-listing.jpg?width=400&height=225",
@@ -14,7 +14,8 @@
 			"American",
 			"Burger"
 		],
-		"item": [
+		"deliveryTime": "30-45 minutes",
+		"items": [
 			{
 				"id": "1",
 				"name": "Double BBQ Turkey Bacon Meal",
@@ -51,7 +52,7 @@
 		"area": "Bedok",
 		"minimumOrder": 12.00,
 		"deliveryFee": 0.70,
-		"priceRating": 2,
+		"priceRating": "$$",
 		"rating": 4.8,
 		"numberRated": 100,
 		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cr3su-listing.jpg?width=400&height=225",
@@ -59,7 +60,8 @@
 			"Japanese",
 			"Ramen"
 		],
-		"item": [
+		"deliveryTime": "25-40 minutes",
+		"items": [
 			{
 				"id": "5",
 				"name": "Takagi Ramen",
@@ -96,7 +98,7 @@
 		"area": "Bedok",
 		"minimumOrder": 6.00,
 		"deliveryFee": 0.5,
-		"priceRating": 1,
+		"priceRating": "$",
 		"rating": 4.3,
 		"numberRated": 320,
 		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/s34n-listing.jpg?width=400&height=225",
@@ -105,7 +107,8 @@
 			"Rice",
 			"Curry"
 		],
-		"item": [
+		"deliveryTime": "20-35 minutes",
+		"items": [
 			{
 				"id": "9",
 				"name": "Fish Fillet Hainanese Curry Rice",
@@ -142,7 +145,7 @@
 		"area": "Bedok",
 		"minimumOrder": 12.00,
 		"deliveryFee": 0.70,
-		"priceRating": 2,
+		"priceRating": "$$",
 		"rating": 4.7,
 		"numberRated": 1000,
 		"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/ysug-listing.jpg?width=400&height=225",
@@ -151,7 +154,8 @@
 			"Roti",
 			"Prata"
 		],
-		"item": [
+		"deliveryTime": "30-45 minutes",
+		"items": [
 			{
 				"id": "13",
 				"name": "Plain Prata",

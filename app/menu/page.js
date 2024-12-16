@@ -61,13 +61,13 @@ const Menu = () => {
                   className="text-gray-400 text-sm mb-4 w-6 h-6"
                   src="https://png.pngtree.com/png-clipart/20230101/original/pngtree-golden-star-icon-vector-clipart-png-image_8843722.png"
                 />
-                <p className="text-[13px] mb-4 ml-1 font-bold">
+                <span className="text-[13px] mb-4 ml-1 font-bold">
                   {restaurant.rating}/5{" "}
                   <span className="font-light">
                     ({restaurant.numberRated}+)
                   </span>{" "}
                   See reviews
-                </p>
+                </span>
               </p>
             </div>
           </div>

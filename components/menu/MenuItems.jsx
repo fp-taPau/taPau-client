@@ -40,7 +40,7 @@ const MenuItems = ({ restaurant }) => {
       <main className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Menu</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {restaurant.item.map((item, index) => (
+          {restaurant.items.map((item, index) => (
             <div
               className="relative bg-zinc-50 p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer hover:bg-pink-100"
               role="button"
