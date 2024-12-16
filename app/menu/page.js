@@ -1,11 +1,17 @@
 "use client";
 
-import restaurants from "../../data/restaurants.json";
 import Header from "../../components/Header";
 import MenuItems from "../../components/menu/MenuItems";
-const defaultRestaurant = restaurants[0];
+import useRestaurantStore from "../../stores/restaurantStore";
 
-const Menu = ({ restaurant = defaultRestaurant }) => {
+const Menu = () => {
+  const restaurant = useRestaurantStore((state) => state.restaurant);
+
+  // Failsafe for MVP, should not happen
+  if (!restaurant) {
+    return <p>No restaurant selected!</p>;
+  }
+
   return (
     <>
       <Header logoUrl="/assets/images/header-logo.png" />
