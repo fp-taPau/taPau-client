@@ -58,7 +58,7 @@ const MenuItems = ({ restaurant }) => {
                 <img
                   src={item.imageUrl}
                   alt={item.name}
-                  className="w-24 h-24 object-cover rounded-full mb-4"
+                  className="w-24 h-24 object-cover rounded-md mb-4"
                 />
               </div>
               {/* Bottom-Right `+` Button */}
