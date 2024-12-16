@@ -21,13 +21,13 @@ const Header = ({
     <header className="bg-white shadow-md pt-4">
       <div className="container mx-8 flex items-center justify-between px-2 w-100">
         {/* Logo and Brand Name */}
-        <div className="flex items-center space-x-2 w-35">
+        <a href="/" className="flex items-center space-x-2 w-35">
           {logoUrl ? (
             <img src={logoUrl} alt="Logo" className="object-contain" />
           ) : (
             <h1>Missing Image</h1>
           )}
-        </div>
+        </a>
 
         {/* Navigation Links */}
         <nav className="hidden md:flex space-x-4">
