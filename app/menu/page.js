@@ -58,14 +58,14 @@ const Menu = () => {
               </p>
               <p className="text-sm text-inactiveText font-bold flex items-center -ml-1">
                 <img
-                  className="text-gray-400 text-sm mb-4 w-6 h-6"
+                  className="text-gray-400 text-sm mb-[16.5px] w-5 h-5"
                   src="https://png.pngtree.com/png-clipart/20230101/original/pngtree-golden-star-icon-vector-clipart-png-image_8843722.png"
                 />
                 <span className="text-[13px] mb-4 ml-1 font-bold">
-                  {restaurant.rating}/5{" "}
-                  <span className="font-light">
+                  {restaurant.rating}/5
+                  <span className="font-light mr-2">
                     ({restaurant.numberRated}+)
-                  </span>{" "}
+                  </span>
                   See reviews
                 </span>
               </p>
