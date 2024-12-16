@@ -4,7 +4,7 @@ import Link from "next/link";
 const Header = ({
   logoUrl = "/assets/image/header-logo.png", // Default logo path in public folder
   links = [
-    { label: "John", href: "/profile" },
+    { label: "Profile", href: "/profile" },
     { label: "EN", href: "/lang" },
     { label: "heart", href: "/likes" },
     { label: "cart", href: "/cart", value: 1 },
@@ -18,8 +18,8 @@ const Header = ({
   ],
 }) => {
   return (
-    <header className="bg-white shadow-md pt-4">
-      <div className="container mx-8 flex items-center justify-between px-2 w-100">
+    <header className="bg-white shadow-md">
+      <div className="flex items-center justify-between mx-18">
         {/* Logo and Brand Name */}
         <a href="/" className="flex items-center space-x-2 w-35">
           {logoUrl ? (
@@ -30,15 +30,15 @@ const Header = ({
         </a>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-4">
+        <nav className="hidden md:flex space-x-4 ml-auto">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-black-600 p-4 hover:bg-gray-200 rounded-lg"
+              className="text-black-600 p-4 hover:bg-hoveredContainer hover:text-black rounded-lg"
             >
               <div className="flex items-center">
-                {link.label == "John" && (
+                {link.label == "Profile" && (
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -73,7 +73,12 @@ const Header = ({
                     ></path>
                   </svg>
                 )}
-                {(link.label === "John" || link.label === "EN") && (
+
+                {link.label === "Profile" && (
+                  <span className="mx-2 font-semibold">John</span>
+                )}
+
+                {link.label === "EN" && (
                   <span className="mx-2 font-semibold">{link.label}</span>
                 )}
 
@@ -115,10 +120,10 @@ const Header = ({
                   </>
                 )}
 
-                {link.label == "John" && (
+                {link.label == "Profile" && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-black-600 group-hover:bg-grey"
+                    className="h-4 w-4 text-black-600 hover:bg-hoveredContainer hover:text-black"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -135,37 +140,14 @@ const Header = ({
             </Link>
           ))}
         </nav>
-
-        {/* Mobile Menu Button (Optional) */}
-        <div className="md:hidden">
-          <button
-            className="text-gray-600 hover:text-gray-900 focus:outline-none"
-            aria-label="Open menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6h16.5M3.75 12h16.5M3.75 18h16.5"
-              />
-            </svg>
-          </button>
-        </div>
       </div>
       {/* show different tabs: delivery, TaPauTogether, pickup, etc.. */}
-      <div className="md:flex space-x-4">
+      <div className="md:flex space-x-2 mx-20">
         {tabs.map((tab) => (
           <Link
             key={tab.href}
             href={tab.href}
-            className="text-gray-600 p-4 border-4 rounded-lg border-transparent hover:bg-gray-200 hover:text-black hover:border-b-black"
+            className="text-gray-600 p-4 border-4 rounded-lg border-transparent hover:bg-hoveredContainer hover:text-black relative hover:hover:after:content-[''] after:absolute after:bottom-0 after:left-1/4 after:w-1/2 after:h-[3px] hover:after:bg-black"
           >
             <div className="flex items-center">
               {tab.label == "Delivery" && (
@@ -207,56 +189,54 @@ const Header = ({
                     strokeLinejoin="round"
                   ></g>
                   <g id="SVGRepo_iconCarrier">
-                    {" "}
                     <g
                       id="Frame_24"
                       data-name="Frame 24"
                       transform="translate(-16.074 -10)"
                     >
-                      {" "}
                       <path
                         id="Path_149"
                         data-name="Path 149"
                         d="M23.994,14a1,1,0,0,0-.762.352l-4.92,5.79a1,1,0,0,0-.233.747L20.092,41.1a1,1,0,0,0,1,.9H34.914a1,1,0,0,0,1-.9l2.012-20.21a1,1,0,0,0-.233-.747l-4.92-5.79A1,1,0,0,0,32.006,14Zm-2.286-.943A3,3,0,0,1,23.994,12h8.012a3,3,0,0,1,2.286,1.057l4.92,5.79a3,3,0,0,1,.7,2.24L37.9,41.3A3,3,0,0,1,34.914,44H21.087A3,3,0,0,1,18.1,41.3l-2.012-20.21a3,3,0,0,1,.7-2.24Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
+                      ></path>
                       <path
                         id="Path_150"
                         data-name="Path 150"
                         d="M28,33a3,3,0,1,0-3-3A3,3,0,0,0,28,33Zm0,2a5,5,0,1,0-5-5A5,5,0,0,0,28,35Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
+                      ></path>
                       <path
                         id="Path_151"
                         data-name="Path 151"
                         d="M38,24H18V22H38Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
+                      ></path>
                       <path
                         id="Path_152"
                         data-name="Path 152"
                         d="M38,38H18V36H38Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
+                      ></path>
                       <path
                         id="Path_153"
                         data-name="Path 153"
                         d="M39.5,10.134a1,1,0,0,1,.366,1.366l-3,5.2-1.732-1,3-5.2A1,1,0,0,1,39.5,10.134Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
+                      ></path>
                       <path
                         id="Path_154"
                         data-name="Path 154"
                         d="M43.718,12.293a1,1,0,0,1,0,1.414l-5.657,5.657L36.646,17.95,42.3,12.293A1,1,0,0,1,43.718,12.293Z"
                         fill="#2d2d2d"
                         fillRule="evenodd"
-                      ></path>{" "}
-                    </g>{" "}
+                      ></path>
+                    </g>
                   </g>
                 </svg>
               )}
@@ -333,7 +313,9 @@ const Header = ({
                 </svg>
               )}
 
-              <span className="mx-2 font-semibold">{tab.label}</span>
+              <span className="mx-2 font-semibold text-sm text-inactiveText">
+                {tab.label}
+              </span>
             </div>
           </Link>
         ))}

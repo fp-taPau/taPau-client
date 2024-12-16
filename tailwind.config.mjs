@@ -22,6 +22,8 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         partyPink: "var(--party-pink)",
+        inactiveText: "var(--inactive-text)",
+        hoveredContainer: "var(--hovered-container)",
       },
     },
   },
