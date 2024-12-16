@@ -19,3 +19,12 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Cuisine Carousel */
+.cuisine-carousel-container {
+  margin: 24px 0 24px 0;
+}
+
+.cuisine-carousel-item-padding-12-px {
+  padding: 12px;
+}
