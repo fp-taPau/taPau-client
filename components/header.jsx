@@ -15,11 +15,7 @@ const Header = ({
         {/* Logo and Brand Name */}
         <div className="flex items-center space-x-2 w-35">
           {logoUrl ? (
-            <img
-              src={logoUrl}
-              alt="Logo"
-              className="bg-slate-400 object-contain"
-            />
+            <img src={logoUrl} alt="Logo" className="object-contain" />
           ) : (
             <h1>Missing Image</h1>
           )}
