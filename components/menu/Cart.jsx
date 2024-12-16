@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const Cart = () => {
   const cost = 0;
@@ -33,12 +34,15 @@ const Cart = () => {
           <p className="font-bold text-secondaryText text-[15px]">S${cost}</p>
         </div>
       </div>
-      <p className="font-bold text-[12px] text-secondaryText mr-auto underline">
+      <p className="font-bold text-[13px] text-secondaryText mr-auto underline">
         See summary
       </p>
-      <button className="font-bold text-[12px] text-[#fefefe] bg-[#c4c4c4] rounded-lg p-2 w-full mt-5">
+      <Link
+        href="/checkout"
+        className="flex justify-center font-bold text-[14px] text-[#fefefe] bg-[#c4c4c4] rounded-lg p-2 py-3 w-full mt-3 hover:cursor-pointer"
+      >
         Review Payment and address
-      </button>
+      </Link>
     </div>
   );
 };

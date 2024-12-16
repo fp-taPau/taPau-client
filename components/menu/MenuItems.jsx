@@ -47,8 +47,8 @@ const MenuItems = ({ restaurant }) => {
               tabIndex="0"
               onClick={() => console.log("Div clicked!")}
             >
-              <div className="flex items-center space-x-4 mb-10">
-                <div className="flex flex-col text-left space-y-2">
+              <div className="flex mb-10 justify-between w-full top-0">
+                <div className="flex flex-col space-y-2">
                   <h3 className="text-lg font-semibold text-left">
                     {item.name}
                   </h3>
