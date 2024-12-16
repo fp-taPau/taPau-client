@@ -7,7 +7,11 @@ export default {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        1: "1px",
+      },
       spacing: {
+        1: "0.25rem", // adds spacing of 1 (4px)
         16: "4rem", // adds spacing of 16 (64px)
         18: "4.5rem", // adds spacing of 18 (72px)
         20: "5rem", // adds spacing of 20 (80px)

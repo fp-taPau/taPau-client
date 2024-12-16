@@ -2,6 +2,7 @@
 
 import Header from "../components/Header";
 import CuisineCarousel from "../components/tapau_page/CuisineCarousel";
+import StoresListing from "../components/tapau_page/StoresListing";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,7 @@ export default function HomePage() {
           />
         </div>
         <CuisineCarousel />
+        <StoresListing />
       </main>
     </>
   );
