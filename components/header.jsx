@@ -19,7 +19,7 @@ const Header = ({
 }) => {
   return (
     <header className="bg-white shadow-md">
-      <div className="flex items-center justify-between mx-18">
+      <div className="flex items-center justify-between mx-18 mt-2">
         {/* Logo and Brand Name */}
         <a href="/" className="flex items-center space-x-2 w-35">
           {logoUrl ? (
@@ -30,12 +30,12 @@ const Header = ({
         </a>
 
         {/* Navigation Links */}
-        <nav className="hidden md:flex space-x-4 ml-auto">
+        <nav className="hidden md:flex ml-auto">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-black-600 p-4 hover:bg-hoveredContainer hover:text-black rounded-lg"
+              className="text-inactiveText text-sm px-4 py-3 hover:bg-hoveredContainer rounded-lg"
             >
               <div className="flex items-center">
                 {link.label == "Profile" && (
@@ -120,10 +120,10 @@ const Header = ({
                   </>
                 )}
 
-                {link.label == "Profile" && (
+                {(link.label == "Profile" || link.label == "EN") && (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 text-black-600 hover:bg-hoveredContainer hover:text-black"
+                    className="h-4 w-4 text-black-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
