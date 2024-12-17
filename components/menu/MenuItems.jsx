@@ -1,6 +1,13 @@
 import React from "react";
+import useCartStore from "@/stores/cartStore";
 
 const MenuItems = ({ restaurant }) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (item) => {
+    addToCart(item); // Add the item to the cart (or increase quantity if it already exists)
+  };
+
   return (
     <div className="min-h-screen mt-1">
       <section className="p-6">
@@ -45,8 +52,9 @@ const MenuItems = ({ restaurant }) => {
               className="relative bg-zinc-50 p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer hover:bg-secondaryPink"
               role="button"
               tabIndex="0"
-              key={index}
-              onClick={() => console.log("Div clicked!")}
+              onClick={() => {
+                handleAddToCart(item)
+              }}
             >
               <div className="flex mb-10 justify-between w-full top-0">
                 <div className="flex flex-col space-y-2">
