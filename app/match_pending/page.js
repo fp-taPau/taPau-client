@@ -24,10 +24,13 @@ export default function matchPending() {
           <h2 className="text-4xl font-extrabold text-partyPink">
             Hang Tight!
           </h2>
-          <p className="text-secondaryText text-center">
-            We are currently looking for a match for you!
-          </p>
+
           <CountdownTimer />
+          <p className="text-secondaryText text-center mt-2">
+            We are currently looking for a match for you!
+            <br />
+            Your payment will be held during this time.
+          </p>
         </div>
       </main>
     </>
