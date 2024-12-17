@@ -24,7 +24,7 @@ const Menu = () => {
 
   // Failsafe for MVP, should not happen
   if (!restaurant) {
-    alert("Error 404");
+    alert("Unexpected Error: 404 Not Found");
   }
 
   return (
