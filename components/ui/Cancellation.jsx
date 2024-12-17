@@ -22,7 +22,7 @@ const Cancellation = ({
     <Root open={isOpen} onOpenChange={onClose}>
       <Portal>
         <Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
-        <Content className="fixed left-1/2 top-1/2 w-3/5 -translate-x-1/2 -translate-y-1/2 rounded-md bg-secondaryPink py-8 px-6 shadow-lg ">
+        <Content className="fixed left-1/2 top-1/2 w-3/5 -translate-x-1/2 -translate-y-1/2 rounded-md bg-hoveredContainer py-8 px-6 shadow-lg ">
           {/* Modal Content */}
           <div className="flex flex-row items-center justify-center space-y-6 mx-16">
             {/* Image */}

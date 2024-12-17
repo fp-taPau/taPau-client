@@ -22,7 +22,7 @@ const Modal = ({
     <Root open={isOpen} onOpenChange={onClose}>
       <Portal>
         <Overlay className="fixed inset-0 bg-black/50 backdrop-blur-sm" />
-        <Content className="fixed left-1/2 top-1/2 w-3/5 -translate-x-1/2 -translate-y-1/2 rounded-md bg-secondaryPink py-8 px-6 shadow-lg ">
+        <Content className="fixed left-1/2 top-1/2 w-3/5 -translate-x-1/2 -translate-y-1/2 rounded-md bg-hoveredContainer py-8 px-6 shadow-lg ">
           <button
             className="absolute right-4 top-4 text-gray-500 hover:text-gray-800"
             onClick={onClose}
