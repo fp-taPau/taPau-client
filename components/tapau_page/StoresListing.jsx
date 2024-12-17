@@ -16,9 +16,10 @@ const StoresListing = () => {
     setRestaurant(restaurant);
     setIsModalOpen(true);
   };
-  
+
   const handleConfirmPool = () => {
     router.push("/menu");
+    // TODO: Do API Call to add to user pooled map for restaurant
     setIsModalOpen(false);
   };
 
