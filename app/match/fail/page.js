@@ -3,9 +3,9 @@
 import Header from "../../../components/Header";
 import Cancellation from "../../../components/ui/Cancellation";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-export default function MatchPending() {
+export default function MatchFail() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -14,26 +14,6 @@ export default function MatchPending() {
     // TODO: Add API Call to count cancellation for user
     setIsModalOpen(false);
   };
-
-  useEffect(() => {
-    const handleKeyPress = (event) => {
-      if (event.metaKey && event.shiftKey) {
-        if (event.key === "y") {
-          console.log("Cmd + Left Shift + Y pressed!");
-          router.push("/match/success");
-        } else if (event.key === "x") {
-          console.log("Cmd + Left Shift + X pressed!");
-          router.push("/match/fail");
-        }
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyPress);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyPress);
-    };
-  }, [router]);
 
   return (
     <>
