@@ -29,7 +29,9 @@ const StoresListing = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
+    {restaurants ? (
+      <div className="min-h-screen">
       <main className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Available Restaurants</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -123,6 +125,11 @@ const StoresListing = () => {
         onClose={() => setIsModalOpen(false)}
       />
     </div>
+    ) : (
+      <></>
+    )}
+    </>
+    
   );
 };
 
