@@ -34,6 +34,17 @@ export default {
         secondaryText: "var(--secondary-text)",
         hoveredContainer: "var(--hovered-container)",
       },
+      animation: {
+        dots: "dots 1s steps(1, end) infinite",
+      },
+      keyframes: {
+        dots: {
+          "0%, 20%": { content: '"."' },
+          "40%": { content: '".."' },
+          "60%": { content: '"..."' },
+          "80%, 100%": { content: '""' },
+        },
+      },
     },
   },
   plugins: [],

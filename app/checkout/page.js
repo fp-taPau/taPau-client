@@ -367,7 +367,7 @@ export default function CheckoutPage() {
               </div>
               <button
                 className="w-full bg-partyPink p-2 text-white font-bold rounded-lg hover:bg-selectedPink"
-                onClick={() => router.push("/match_pending")}
+                onClick={() => router.push("/match/pending")}
               >
                 Place order
               </button>

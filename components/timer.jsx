@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
 
 const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState(600); // 10 minutes in seconds (600 seconds)
+  const [timeLeft, setTimeLeft] = useState(null); // Start with null to avoid SSR issues
+
+  // Function to generate a random time
+  const getRandomTime = () => Math.floor(Math.random() * (600 - 300 + 1)) + 300;
 
   useEffect(() => {
+    // Set random time only after the component mounts
+    setTimeLeft(getRandomTime());
+  }, []);
+
+  useEffect(() => {
+    if (timeLeft === null) return; // Skip if timeLeft is not set yet
+
     const interval = setInterval(() => {
       setTimeLeft((prevTime) => {
         if (prevTime <= 1) {
@@ -14,9 +24,9 @@ const CountdownTimer = () => {
       });
     }, 1000);
 
-    // Clean up the interval on component unmount
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [timeLeft]);
+
 
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
