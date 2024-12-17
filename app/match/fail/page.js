@@ -26,7 +26,6 @@ export default function matchFail() {
             No available matches
             <span className="relative after:content-[''] after:absolute after:animate-dots"></span>
           </h2>
-          {/* change image link */}
           <img
             src="/assets/images/hungry_pau.png"
             className="w-100 h-100 items-center"
