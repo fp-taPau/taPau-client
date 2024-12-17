@@ -214,9 +214,9 @@ export default function CheckoutPage() {
                 )}
 
                 {card.title == "Payment" && (
-                  <div className="p-2">
+                  <div className="p-2" key={card.title}>
                     <div className="flex flex-col w-full p-2">
-                      {card.options.map((option) => (
+                      {card.options.map((option, idx) => (
                         <div
                           key={option.name}
                           className="flex space-x-4 p-3 content-center border-1 border-black rounded-lg mb-2"

@@ -107,11 +107,11 @@ const Menu = () => {
         imageAltDesc="Paupau looking like he is waiting for an answer"
         description="Heads up! If you leave this matching session, your cart will be cleared and the restaurant might not remain available as an option."
         optionOne={{
-          label: "Yes, I want to leave.",
+          label: "Yes, leave now",
           onClick: handleCancellation,
         }}
         optionTwo={{
-          label: "No, keep me in the pool.",
+          label: "No, stay in the session",
           onClick: () => setIsModalOpen(false),
         }}
         isOpen={isModalOpen}
