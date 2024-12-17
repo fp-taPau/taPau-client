@@ -1,16 +1,30 @@
 "use client";
 
-import restaurants from "../../data/restaurants.json";
+// import restaurants from "../../data/restaurants.json";
 import useRestaurantStore from "../../stores/restaurantStore";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Modal from "../../components/ui/Modal";
+import useCancelledStore from "@/stores/cancelledStore";
+import { getAvailableRestaurants } from "@/api/tapau/tapau";
 
 const StoresListing = () => {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const setRestaurant = useRestaurantStore((state) => state.setRestaurant);
+
+  const cancelledRestaurants = useCancelledStore((state) => state.cancelledRestaurants);
+  console.log(cancelledRestaurants)
+
+  const [restaurants, setRestaurants] = useState(null);
+  useEffect(() => {
+    // Fetch the order data when the component mounts
+    getAvailableRestaurants().then((data) => {
+      console.log(data)
+      setRestaurants(Object.values(data))
+    })
+  }, []);
 
   const handleOpenModal = (restaurant) => {
     setRestaurant(restaurant);
@@ -35,8 +49,8 @@ const StoresListing = () => {
       <main className="p-6">
         <h2 className="text-2xl font-semibold mb-4">Available Restaurants</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {restaurants.map((restaurant, index) => (
-            <div key={index} onClick={() => handleOpenModal(restaurant)}>
+          {restaurants.map((restaurant) => (
+            <div key={restaurant.id} onClick={() => handleOpenModal(restaurant)}>
               <div className="bg-white border-solid border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer">
                 <img
                   src={restaurant.imageUrl}
@@ -126,7 +140,7 @@ const StoresListing = () => {
       />
     </div>
     ) : (
-      <></>
+      <>Loading..</>
     )}
     </>
     
