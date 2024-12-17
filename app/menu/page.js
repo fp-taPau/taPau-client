@@ -5,12 +5,10 @@ import MenuItems from "../../components/menu/MenuItems";
 import Cart from "../../components/menu/Cart";
 import useRestaurantStore from "../../stores/restaurantStore";
 import BackButton from "@/components/ui/BackButton";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Cancellation from "../../components/ui/Cancellation";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getRestaurantByID } from "@/api/tapau/tapau";
-import { useParams } from "react-router-dom";
 
 const Menu = () => {
   const router = useRouter();
@@ -98,7 +96,7 @@ const Menu = () => {
           <MenuItems restaurant={restaurant} />
         </div>
         <div className="col-span-1 mt-8 sticky top-0">
-          <Cart/>
+          <Cart />
         </div>
       </section>
       <Cancellation
