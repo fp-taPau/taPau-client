@@ -4,13 +4,27 @@ import Header from "../../components/Header";
 import MenuItems from "../../components/menu/MenuItems";
 import Cart from "../../components/menu/Cart";
 import useRestaurantStore from "../../stores/restaurantStore";
+import BackButton from "@/components/ui/BackButton";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Modal from "../../components/ui/Modal";
 
 const Menu = () => {
+  const router = useRouter();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const restaurant = useRestaurantStore((state) => state.restaurant);
+
+  const handleCancellation = () => {
+    router.push("/");
+    // TODO: Add API Call to count cancellation for user
+    setIsModalOpen(false);
+  };
 
   // Failsafe for MVP, should not happen
   if (!restaurant) {
-    return <p>Error 404</p>;
+    alert("Error 404");
   }
 
   return (
@@ -18,9 +32,12 @@ const Menu = () => {
       <Header logoUrl="/assets/images/header-logo.png" />
       <header className="bg-zinc-50 shadow-lg mt-1 py-4">
         <div className="mx-20 space-y-2">
-          <p className="text-sm text-inactiveText font-semibold">
-            Singapore {">"} Restaurant List {">"} {restaurant.name}
-          </p>
+          <div className="-mx-8 flex flex-row items-center space-x-3 -mb-3">
+            <BackButton onClick={() => setIsModalOpen(true)} />
+            <p className="text-sm text-inactiveText font-semibold">
+              Singapore {">"} Restaurant List {">"} {restaurant.name}
+            </p>
+          </div>
           <div className="flex flex-row py-4 space-x-8">
             <img
               src={restaurant.imageUrl}
@@ -81,6 +98,22 @@ const Menu = () => {
           <Cart />
         </div>
       </section>
+      <Modal
+        title="Are ready to order and be matched with a pool?"
+        imageSrc="/assets/images/pau_what.png"
+        imageAltDesc="Paupau looking like he is waiting for an answer"
+        description="This is a reusable modal that can show dynamic content such as images, title, and options."
+        optionOne={{
+          label: "Yes, add me to the pool!",
+          onClick: handleCancellation,
+        }}
+        optionTwo={{
+          label: "No, I just want to browse first",
+          onClick: () => setIsModalOpen(false),
+        }}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };
