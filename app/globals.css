@@ -35,3 +35,68 @@ body {
 .cuisine-carousel-item-padding-12-px {
   padding: 12px;
 }
+
+/* Loading Bar */
+.loading-bar-container {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.loading-bar {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.loading-bar-progress {
+  height: 100%;
+  background-color: #ff69b4;
+  transition: width 0.5s ease;
+}
+
+.checkpoints {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.checkpoint {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #951756;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+}
+
+.checkpoint.active {
+  background-color: #ff69b4;
+}
+
+@keyframes stream {
+  0% {
+    background-position: -200% 0;
+  }
+  50% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-stream {
+  animation: stream 3s linear infinite;
+  background-size: 200% 100%; /* Makes the gradient larger to simulate movement */
+}
