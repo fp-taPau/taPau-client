@@ -1,0 +1,30 @@
+{
+    "orderId": "a1b2-c3d4-e5f6",
+    "customer": {
+        "customerId": "1",
+        "name": "John Parker"
+    },
+    "restaurant": {
+        "id": "1",
+        "name": "Burger King",
+        "area": "Bedok",
+        "minimumOrder": 8.00,
+        "deliveryFee": 0.50,
+        "imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cz1ow-listing.jpg?width=400&height=225"
+    },
+    "items": [
+        {
+            "id": "1",
+            "name": "Double BBQ Turkey Bacon Meal",
+            "price": 11.30
+        },
+        {
+            "id": "2",
+            "name": "Hersheys Sundae Pie",
+            "price": 4.54
+        }
+    ],
+    "orderTime": "2024-12-17T10:00:00Z",
+    "orderType": "Delivery",
+    "orderTotal": 15.84
+}
