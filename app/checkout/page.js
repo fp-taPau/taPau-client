@@ -1,128 +1,11 @@
 "use client";
 
 import Header from "../../components/Header";
-import Card from "@/components/card/Card";
+import details from "../../data/checkoutDetails.json";
+import orders from "../../data/order.json";
 
-export default function HomePage() {
-  var details = [
-    {
-      title: "Delivery address",
-      titleButton: "Change",
-      addressName: "Meeting location",
-      address: "3 River Valley Road Singapore 179024",
-      noteToDriver: "",
-      contactlessDelivery: false,
-    },
-    {
-      title: "Delivery options",
-      options: [
-        {
-          name: "Standard",
-          time: "45 - 65 mins",
-          selected: true,
-        },
-        {
-          name: "Priority",
-          time: "40 - 55 mins",
-          additionalCost: 2.5,
-          selected: false,
-        },
-        {
-          name: "Scheduled",
-          time: "Select a date and time",
-          selected: false,
-        },
-      ],
-    },
-    {
-      title: "Personal details",
-      titleButton: "Edit",
-      name: "John Smith",
-      email: "john.smith@gmail.com",
-      mobile: "+65 91234567",
-    },
-    {
-      title: "Payment",
-      titleButton: "Show all",
-      options: [
-        {
-          selected: true,
-          type: "pandapay",
-          balance: 50.0,
-          cardNumber: "**** 1234",
-        },
-        {
-          type: "Visa",
-          cardNumber: "**** 1234",
-        },
-        {
-          type: "Visa",
-          cardNumber: "**** 4321",
-        },
-        {
-          type: "Paylah!",
-          cardNumber: "**** 0987",
-        },
-      ],
-    },
-    {
-      title: "Tip your rider",
-      description: "100% of your tips goes to the riders.",
-      options: [
-        {
-          name: "Not now",
-          amount: 0,
-        },
-        {
-          name: "S$1.00",
-          amount: 1,
-        },
-        {
-          name: "S$2.00",
-          amount: 2,
-        },
-        {
-          name: "S$3.00",
-          amount: 3,
-        },
-        {
-          name: "S$4.00",
-          amount: 4,
-        },
-      ],
-    },
-  ];
-  
-  var order = {
-		"orderId": "a1b2-c3d4-e5f6",
-		"customer": {
-			"customerId": "1",
-			"name": "John Parker"
-		},
-		"restaurant": {
-			"id": "1",
-			"name": "Burger King",
-			"area": "Bedok",
-			"minimumOrder": 8.00,
-			"deliveryFee": 0.50,
-			"imageUrl": "https://images.deliveryhero.io/image/fd-sg/LH/cz1ow-listing.jpg?width=400&height=225"
-		},
-		"items": [
-			{
-				"id": "1",
-				"name": "Double BBQ Turkey Bacon Meal",
-				"price": 11.30
-			},
-			{
-				"id": "2",
-				"name": "Hersheys Sundae Pie",
-				"price": 4.54
-			}
-		],
-		"orderTime": "2024-12-17T10:00:00Z",
-		"orderType": "Delivery",
-		"orderTotal": 15.84
-	}
+export default function CheckoutPage() {
+  var order = orders[0];
 
   return (
     <>
@@ -134,7 +17,7 @@ export default function HomePage() {
         <div className="flex space-x-4 flex-row">
           {/* Delivery and payment details */}
           <div className="basis-1/2">
-            {details.map((card) => (
+            {details.map((card, index) => (
               <div
                 key={card.title}
                 className="p-2 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5"
@@ -300,7 +183,7 @@ export default function HomePage() {
                     <span>{card.description}</span>
                     <div className="flex flex-row justify-between mt-4">
                       {card.options.map((option) => (
-                        <span className="flex flex-col ">
+                        <span className="flex flex-col">
                           <button>
                             <span
                               key={option.name}
@@ -329,48 +212,63 @@ export default function HomePage() {
           </div>
           {/* Order details */}
           <div className="basis-1/2">
-          <div className="p-4 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5">
-  {/* Header Section */}
-  <div className="p-2 text-lg font-bold">
-    Your order from
-    <div className="text-gray-600 font-normal">{order.restaurant.name} ({order.restaurant.area})</div>
-  </div>
+            <div className="p-4 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5">
+              {/* Header Section */}
+              <div className="p-2 text-lg font-bold">
+                Your order from
+                <div className="text-gray-600 font-normal">
+                  {order.restaurant.name} ({order.restaurant.area})
+                </div>
+              </div>
 
-  {/* Items List */}
-  <div className="mt-2">
-    {order.items.map((item, index) => (
-      <div key={item.id} className="flex justify-between items-start text-sm mb-1">
-        <div>
-          <span>{index + 1} x {item.name}</span>
-        </div>
-        <div className="font-semibold">S$ {item.price.toFixed(2)}</div>
-      </div>
-    ))}
-  </div>
+              {/* Items List */}
+              <div className="mt-2">
+                {order.items.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="flex justify-between items-start text-sm mb-1"
+                  >
+                    <div>
+                      <span>
+                        {index + 1} x {item.name}
+                      </span>
+                    </div>
+                    <div className="font-semibold">
+                      S$ {item.price.toFixed(2)}
+                    </div>
+                  </div>
+                ))}
+              </div>
 
-  {/* Subtotal, Delivery Fee, and Platform Fee */}
-  <div className="mt-3 border-t-[1px] border-gray-200 pt-2 text-sm">
-    <div className="flex justify-between mb-1">
-      <span>Subtotal</span>
-      <span>S$ {order.items.reduce((total, item) => total + item.price, 0).toFixed(2)}</span>
-    </div>
-    <div className="flex justify-between mb-1">
-      <span>Standard delivery</span>
-      <span>S$ {order.restaurant.deliveryFee.toFixed(2)}</span>
-    </div>
-    <div className="flex justify-between mb-1">
-      <span>Platform fee</span>
-      <span>S$ 0.40</span>
-    </div>
-  </div>
+              {/* Subtotal, Delivery Fee, and Platform Fee */}
+              <div className="mt-3 border-t-[1px] border-gray-200 pt-2 text-sm">
+                <div className="flex justify-between mb-1">
+                  <span>Subtotal</span>
+                  <span>
+                    S${" "}
+                    {order.items
+                      .reduce((total, item) => total + item.price, 0)
+                      .toFixed(2)}
+                  </span>
+                </div>
+                <div className="flex justify-between mb-1">
+                  <span>Standard delivery</span>
+                  <span>S$ {order.restaurant.deliveryFee.toFixed(2)}</span>
+                </div>
+                <div className="flex justify-between mb-1">
+                  <span>Platform fee</span>
+                  <span>S$ 0.40</span>
+                </div>
+              </div>
 
-  {/* Total Section */}
-  <div className="flex justify-between mt-2 text-lg font-bold">
-    <span>Total</span>
-    <span className="text-xl">S$ {(order.orderTotal + 0.40).toFixed(2)}</span>
-  </div>
-</div>
-
+              {/* Total Section */}
+              <div className="flex justify-between mt-2 text-lg font-bold">
+                <span>Total</span>
+                <span className="text-xl">
+                  S$ {(order.orderTotal + 0.4).toFixed(2)}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
         <div className=""></div>
