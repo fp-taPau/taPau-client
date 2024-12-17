@@ -18,8 +18,8 @@ const DeliveryStatusPage = () => {
   // Simulate progress (increasing every 500ms)
   useEffect(() => {
     const interval = setInterval(() => {
-      setProgress((prev) => (prev < 100 ? prev + 10 : 100)); // Progress increases by 10% every 500ms
-    }, 500);
+      setProgress((prev) => (prev < 100 ? prev + 10 : 100)); // Progress increases by 10% every 750ms
+    }, 750);
     return () => clearInterval(interval);
   }, []);
 
