@@ -34,7 +34,7 @@ const Modal = ({
               <img
                 src={imageSrc}
                 alt={title}
-                className="max-w-sm w-full rounded-2xl"
+                className="w-60 h-auto mx-auto mt-6 mb-6"
               />
             )}
             <Title className="text-2xl font-bold text-secondaryText text-center">
@@ -43,7 +43,7 @@ const Modal = ({
             <Description className="text-secondaryText mb-4 text-center px-8">
               {description}
             </Description>
-            <div className="fleCross1Icon flex justify-around gap-4">
+            <div className="fleCross1Icon flex justify-around gap-4 mt-6">
               {optionOne && (
                 <button
                   onClick={optionOne.onClick}

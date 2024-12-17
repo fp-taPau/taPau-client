@@ -108,7 +108,7 @@ const StoresListing = () => {
         title="Are ready to order and be matched with a pool?"
         imageSrc="/assets/images/pau_what.png"
         imageAltDesc="Paupau looking like he is waiting for an answer"
-        description="This is a reusable modal that can show dynamic content such as images, title, and options."
+        description="By choosing to match, you'll be connected with other available customers."
         optionOne={{
           label: "Yes, add me to the pool!",
           onClick: handleConfirmPool,
