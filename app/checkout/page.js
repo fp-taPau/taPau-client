@@ -11,28 +11,25 @@ export default function CheckoutPage() {
     <>
       <Header logoUrl="/assets/images/header-logo.png" />
       <main className="p-5 w-11/12 items-center mx-auto my-8 flex flex-col justify-center">
-        {/* Edit here! */}
         {/* Delivery Address card */}
-        {/* <Card details={details}></Card> */}
-        <div className="flex space-x-4 flex-row">
+        <div className="space-x-4 grid grid-cols-5 w-11/12 gap-8">
           {/* Delivery and payment details */}
-          <div className="basis-1/2">
+          <div className="col-span-3">
             {details.map((card, index) => (
               <div
                 key={card.title}
                 className="p-2 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5"
               >
-                <div className=" w-100 p-1 rounded-lg flex flex-row justify-between">
+                <div className=" w-100 p-1 rounded-lg flex flex-row justify-between w-full">
                   <div className="p-2 rounded-lg flex flex-col items-start text-lg font-semibold">
                     {card.title}
                   </div>
-                  <div className="rounded-lg flex flex-col items-start text-sm font-semibold text-inactiveText">
+                  <div className="rounded-lg flex flex-col text-sm font-semibold text-inactiveText">
                     {card.titleButton && (
                       <button className="p-2 hover:bg-gray-200 hover:rounded">
                         {card.titleButton}
                       </button>
                     )}
-                    {/* {card.titleButton && card.titleButton} */}
                   </div>
                 </div>
                 {card.title == "Delivery address" && (
@@ -51,14 +48,13 @@ export default function CheckoutPage() {
                           strokeLinejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
-                          {" "}
                           <path
                             d="M10 8L14 12M14 8L10 12M19 10.2C19 14.1764 15.5 17.4 12 21C8.5 17.4 5 14.1764 5 10.2C5 6.22355 8.13401 3 12 3C15.866 3 19 6.22355 19 10.2Z"
                             stroke="#000000"
                             strokeWidth="1.344"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          ></path>{" "}
+                          ></path>
                         </g>
                       </svg>
                       <div className="flex flex-col ms-1">
@@ -160,9 +156,7 @@ export default function CheckoutPage() {
                           stroke-linejoin="round"
                         ></g>
                         <g id="SVGRepo_iconCarrier">
-                          {" "}
                           <g id="Interface / Ticket_Voucher">
-                            {" "}
                             <path
                               id="Vector"
                               d="M14 6H6C5.06812 6 4.60192 6 4.23438 6.15224C3.74432 6.35523 3.35523 6.74481 3.15224 7.23486C3 7.60241 3 8.06835 3 9.00023C4.65685 9.00023 6 10.3429 6 11.9998C6 13.6566 4.65685 15 3 15C3 15.9319 3 16.3978 3.15224 16.7654C3.35523 17.2554 3.74432 17.6447 4.23438 17.8477C4.60192 17.9999 5.06812 18 6 18H14M14 6H18C18.9319 6 19.3978 6 19.7654 6.15224C20.2554 6.35523 20.6447 6.74481 20.8477 7.23486C20.9999 7.6024 20.9999 8.06835 20.9999 9.00023C19.343 9.00023 18 10.3431 18 12C18 13.6569 19.343 15 20.9999 15C20.9999 15.9319 20.9999 16.3978 20.8477 16.7654C20.6447 17.2554 20.2554 17.6447 19.7654 17.8477C19.3978 17.9999 18.9319 18 18 18H14M14 6V18"
@@ -170,8 +164,8 @@ export default function CheckoutPage() {
                               stroke-width="1.344"
                               stroke-linecap="round"
                               stroke-linejoin="round"
-                            ></path>{" "}
-                          </g>{" "}
+                            ></path>
+                          </g>
                         </g>
                       </svg>
                       <span className="font-bold ms-2">Apply a voucher</span>
@@ -211,7 +205,7 @@ export default function CheckoutPage() {
             </button>
           </div>
           {/* Order details */}
-          <div className="basis-1/2">
+          <div className="col-span-2">
             <div className="p-4 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5">
               {/* Header Section */}
               <div className="p-2 text-lg font-bold">
@@ -245,7 +239,7 @@ export default function CheckoutPage() {
                 <div className="flex justify-between mb-1">
                   <span>Subtotal</span>
                   <span>
-                    S${" "}
+                    S$
                     {order.items
                       .reduce((total, item) => total + item.price, 0)
                       .toFixed(2)}
