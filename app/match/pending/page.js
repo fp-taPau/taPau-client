@@ -1,11 +1,11 @@
 "use client";
 
 import BackButton from "@/components/ui/BackButton";
-import Header from "../../components/Header";
+import Header from "../../../components/Header";
 import CountdownTimer from "@/components/timer";
-import Cancellation from "../../components/ui/Cancellation";
+import Cancellation from "../../../components/ui/Cancellation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function matchPending() {
   const router = useRouter();
@@ -18,6 +18,34 @@ export default function matchPending() {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    const handleSuccessPress = (event) => {
+      // Check if Cmd (meta key), Shift, and Y keys are pressed
+      if (event.metaKey && event.shiftKey && event.key === "y") {
+        console.log("Cmd + Left Shift + Y pressed!");
+        router.push("/match/success");
+      }
+    };
+
+    const handleFailPress = (event) => {
+      // Check if Cmd (meta key), Shift, and X keys are pressed
+      if (event.metaKey && event.shiftKey && event.key === "x") {
+        console.log("Cmd + Left Shift + X pressed!");
+        router.push("/match/fail");
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener("keydown", handleSuccessPress);
+    window.addEventListener("keydown", handleFailPress);
+
+    // Cleanup event listeners
+    return () => {
+      window.removeEventListener("keydown", handleSuccessPress);
+      window.removeEventListener("keydown", handleFailPress);
+    };
+  }, [router]);
+
   return (
     <>
       <Header logoUrl="/assets/images/header-logo.png" />
@@ -26,7 +54,9 @@ export default function matchPending() {
           <BackButton onClick={() => setIsModalOpen(true)} />
           {/* TODO: Call cancellation button again here */}
           <h1 className="text-black font-bold flex flex-col justify-start text-4xl -mt-2">
-            <span className="relative after:content-[''] after:absolute after:animate-dots">Matching in progress</span>
+            <span className="relative after:content-[''] after:absolute after:animate-dots">
+              Matching in progress
+            </span>
           </h1>
         </div>
         <div className="py-8 bg-secondaryPink w-11/12 flex flex-col items-center justify-center rounded-lg shadow-md">
