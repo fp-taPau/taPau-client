@@ -8,14 +8,15 @@ import Modal from "../../components/ui/Modal";
 
 const StoresListing = () => {
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const setRestaurant = useRestaurantStore((state) => state.setRestaurant);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = (restaurant) => {
     setRestaurant(restaurant);
     setIsModalOpen(true);
   };
+  
   const handleConfirmPool = () => {
     router.push("/menu");
     setIsModalOpen(false);
