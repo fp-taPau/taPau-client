@@ -89,16 +89,18 @@ const Cart = () => {
         <p className="font-bold text-[13px] text-secondaryText underline">
           See summary
         </p>
-        <Link
-          href="/checkout"
-          className={`flex justify-center font-bold text-[14px] rounded-lg p-2 py-3 w-full mt-3 cursor-pointer ${
-            cart.length !== 0
-              ? "bg-partyPink text-white"
-              : "bg-[#c4c4c4] text-[#fefefe]"
-          }`}
-        >
-          Review Payment and Address
-        </Link>
+        {cart.length !== 0 ? (
+          <Link
+            href="/checkout"
+            className="flex justify-center font-bold text-[14px] bg-partyPink text-white rounded-lg p-2 py-3 w-full mt-3 cursor-pointer"
+          >
+            Review Payment and Address
+          </Link>
+        ) : (
+          <div className="flex justify-center font-bold text-[14px] bg-[#c4c4c4] text-[#fefefe] rounded-lg p-2 py-3 w-full mt-3 cursor-not-allowed">
+            Review Payment and Address
+          </div>
+        )}
       </div>
     </div>
   );
