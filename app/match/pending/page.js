@@ -59,21 +59,23 @@ export default function matchPending() {
             </span>
           </h1>
         </div>
-        <div className="py-8 bg-secondaryPink w-11/12 flex flex-col items-center justify-center rounded-lg shadow-md">
+        <div className="py-8 bg-secondaryPink w-11/12 flex flex-row items-center justify-center rounded-lg shadow-md">
           <img
             src="/assets/images/curious_pau.png"
-            className="w-100 h-100 items-center"
+            className="w-140 h-140 items-center -ml-30 -mt-8"
           />
-          <h2 className="text-4xl font-extrabold text-partyPink">
-            Hang Tight!
-          </h2>
+          <div className="flex flex-col items-center justify-center -mt-15">
+            <h1 className="text-[9rem] font-extrabold text-partyPink font-typaugraphy">
+              Hang Tight!
+            </h1>
 
-          <CountdownTimer />
-          <p className="text-secondaryText text-center mt-2">
-            We are currently looking for a match for you!
-            <br />
-            Your payment will be held during this time.
-          </p>
+            <CountdownTimer />
+            <p className="text-secondaryText text-center mt-2 text-lg">
+              We are currently looking for a match for you!
+              <br />
+              Your payment will be held during this time.
+            </p>
+          </div>
         </div>
         <Cancellation
           title="We are still finding you a match, are you sure you want to leave?"

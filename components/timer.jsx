@@ -27,7 +27,6 @@ const CountdownTimer = () => {
     return () => clearInterval(interval); // Cleanup interval on unmount
   }, [timeLeft]);
 
-
   const formatTime = (timeInSeconds) => {
     const minutes = Math.floor(timeInSeconds / 60);
     const seconds = timeInSeconds % 60;
@@ -38,8 +37,8 @@ const CountdownTimer = () => {
   };
 
   return (
-    <div className="flex justify-center items-center p-5">
-      <div className="text-8xl font-bold bg-partyPink opacity-80 text-white rounded-lg px-4 py-2">
+    <div className="flex justify-center items-center font-agrandir mb-8">
+      <div className="text-8xl font-bold bg-partyPink opacity-80 text-white rounded-lg px-8 py-2 pt-6">
         {formatTime(timeLeft)}
       </div>
     </div>
