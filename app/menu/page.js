@@ -102,7 +102,7 @@ const Menu = () => {
         title="We are still finding you a match, are you sure you want to leave?"
         imageSrc="/assets/images/gasping_pau.png"
         imageAltDesc="Paupau looking like he is waiting for an answer"
-        description="Heads up! If you leave this matching session, your cart will be cleared, the restaurant might not remain available as an option."
+        description="Heads up! If you leave this matching session, your cart will be cleared and the restaurant might not remain available as an option."
         optionOne={{
           label: "Yes, I want to leave.",
           onClick: handleCancellation,

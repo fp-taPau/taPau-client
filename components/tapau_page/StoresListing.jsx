@@ -107,7 +107,7 @@ const StoresListing = () => {
         </div>
       </main>
       <Modal
-        title="Are ready to order and be matched with a pool?"
+        title="Are you ready to order and be matched with a pool?"
         imageSrc="/assets/images/pau_what.png"
         imageAltDesc="Paupau looking like he is waiting for an answer"
         description="By choosing to match, you'll be connected with other available customers."
