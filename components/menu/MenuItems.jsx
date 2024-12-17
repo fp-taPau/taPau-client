@@ -53,7 +53,7 @@ const MenuItems = ({ restaurant }) => {
               role="button"
               tabIndex="0"
               onClick={() => {
-                handleAddToCart(item)
+                handleAddToCart(item);
               }}
             >
               <div className="flex mb-10 justify-between w-full top-0">
@@ -62,7 +62,7 @@ const MenuItems = ({ restaurant }) => {
                     {item.name}
                   </h3>
                   <p className="text-gray-600">from ${item.price}</p>
-                  <p className="text-gray-600">{item.description}</p>
+                  <p className="text-gray-600 mr-10">{item.description}</p>
                 </div>
                 <img
                   src={item.imageUrl}
