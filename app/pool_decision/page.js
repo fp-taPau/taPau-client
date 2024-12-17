@@ -2,7 +2,7 @@
 
 import Header from "../../components/Header";
 
-export default function HomePage() {
+export default function PoolDecision() {
   return (
     <>
       <Header logoUrl="/assets/images/header-logo.png" />
@@ -10,7 +10,7 @@ export default function HomePage() {
         <div className="flex justify-center mb-6">
           <img
             src="/assets/images/pau_what.png"
-            alt="Add image desc here for A11Y"
+            alt="Paupau looking like he is waiting for an answer"
             className="max-w-md w-full rounded-2xl"
           />
         </div>
