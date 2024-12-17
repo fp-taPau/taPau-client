@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import useCartStore from "@/stores/cartStore";
 
-const Cart = () => {
+const Cart = ({ restaurant }) => {
   const cart = useCartStore((state) => state.cart);
 
   const calculateTotal = () => {
@@ -17,8 +17,13 @@ const Cart = () => {
     <div className="flex flex-col min-h-screen border-[0.25px] border-gray-300 rounded-lg">
       {/* Header */}
       <div className="relative bg-gray-100 w-full p-1 shadow-md rounded-lg">
-        <div className="bg-white p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center text-sm font-semibold text-inactiveText">
-          TaPau-Together!
+        <div className="bg-white p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center">
+          <p className="text-[1.05rem] font-semibold text-secondaryText">
+            Delivery
+          </p>
+          <span className="mt-1 font-light text-black text-[12px]">
+            TaPau-Together! ({restaurant.deliveryTime})
+          </span>
         </div>
       </div>
 
