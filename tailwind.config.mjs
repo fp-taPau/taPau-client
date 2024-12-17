@@ -29,6 +29,7 @@ export default {
         foreground: "var(--foreground)",
         partyPink: "var(--party-pink)",
         secondaryPink: "var(--secondary-pink)",
+        selectedPink: "var(--selected-pink)",
         inactiveText: "var(--inactive-text)",
         secondaryText: "var(--secondary-text)",
         hoveredContainer: "var(--hovered-container)",

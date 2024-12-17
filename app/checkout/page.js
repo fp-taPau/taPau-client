@@ -3,8 +3,11 @@
 import Header from "../../components/Header";
 import details from "../../data/checkoutDetails.json";
 import orders from "../../data/order.json";
+import { useRouter } from "next/navigation";
 
 export default function CheckoutPage() {
+  const router = useRouter();
+
   var order = orders[0];
 
   return (
@@ -262,7 +265,10 @@ export default function CheckoutPage() {
                   </span>
                 </div>
               </div>
-              <button className="w-full bg-partyPink p-2 text-white font-bold rounded-lg hover:bg-pink-600">
+              <button
+                className="w-full bg-partyPink p-2 text-white font-bold rounded-lg hover:bg-selectedPink"
+                onClick={() => router.push("/match_pending")}
+              >
                 Place order
               </button>
             </div>
