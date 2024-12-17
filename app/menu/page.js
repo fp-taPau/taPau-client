@@ -7,7 +7,7 @@ import useRestaurantStore from "../../stores/restaurantStore";
 import BackButton from "@/components/ui/BackButton";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Modal from "../../components/ui/Modal";
+import Cancellation from "../../components/ui/Cancellation";
 
 const Menu = () => {
   const router = useRouter();
@@ -98,17 +98,17 @@ const Menu = () => {
           <Cart />
         </div>
       </section>
-      <Modal
-        title="Are ready to order and be matched with a pool?"
-        imageSrc="/assets/images/pau_what.png"
+      <Cancellation
+        title="We are still finding you a match, are you sure you want to leave?"
+        imageSrc="/assets/images/gasping_pau.png"
         imageAltDesc="Paupau looking like he is waiting for an answer"
-        description="This is a reusable modal that can show dynamic content such as images, title, and options."
+        description="Heads up! If you leave this matching session, your cart will be cleared, the restaurant might not remain available as an option."
         optionOne={{
-          label: "Yes, add me to the pool!",
+          label: "Yes, I want to leave.",
           onClick: handleCancellation,
         }}
         optionTwo={{
-          label: "No, I just want to browse first",
+          label: "No, keep me in the pool.",
           onClick: () => setIsModalOpen(false),
         }}
         isOpen={isModalOpen}
