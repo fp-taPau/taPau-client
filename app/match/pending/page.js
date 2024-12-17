@@ -68,7 +68,6 @@ export default function matchPending() {
             <h1 className="text-[9rem] font-extrabold text-partyPink font-typaugraphy">
               Hang Tight!
             </h1>
-
             <CountdownTimer />
             <p className="text-secondaryText text-center mt-2 text-lg">
               We are currently looking for a match for you!
@@ -81,13 +80,13 @@ export default function matchPending() {
           title="We are still finding you a match, are you sure you want to leave?"
           imageSrc="/assets/images/gasping_pau.png"
           imageAltDesc="Paupau looking like he is waiting for an answer"
-          description="Heads up! If you leave this matching session, your cart will be cleared, the restaurant might not remain available as an option."
+          description="Heads up! If you leave this matching session, your cart will be cleared, the restaurant might not remain available as an option later on."
           optionOne={{
-            label: "Yes, I want to leave.",
+            label: "Yes, leave now",
             onClick: handleCancellation,
           }}
           optionTwo={{
-            label: "No, keep me in the pool.",
+            label: "No, stay in the session",
             onClick: () => setIsModalOpen(false),
           }}
           isOpen={isModalOpen}
