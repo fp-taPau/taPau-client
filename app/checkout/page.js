@@ -70,11 +70,11 @@ export default function CheckoutPage() {
                   </div>
                 )}
                 {card.title == "Delivery options" && (
-                  <div className="flex flex-col w-100 p-2">
+                  <div className="flex flex-col w-full p-2">
                     {card.options.map((option) => (
                       <div
                         key={option.name}
-                        className="flex space-x-4 p-2 content-center border-2 border-black rounded-lg mb-2"
+                        className="flex space-x-4 p-3 content-center border-1 border-black rounded-lg mb-2"
                       >
                         <input
                           type="radio"
@@ -116,7 +116,7 @@ export default function CheckoutPage() {
                       {card.options.map((option) => (
                         <div
                           key={option.name}
-                          className="flex space-x-4 p-2 content-center border-2 border-black rounded-lg mb-2"
+                          className="flex space-x-4 p-3 content-center border-1 border-black rounded-lg mb-2"
                         >
                           <input
                             type="radio"
@@ -131,7 +131,7 @@ export default function CheckoutPage() {
                                 width="25px"
                                 src="/assets/images/pandapay-logo.png"
                               />
-                              <span className="text-sm content-center">
+                              <span className="text-sm">
                                 Balance: S${option.balance.toFixed(2)}
                               </span>
                             </>
@@ -175,7 +175,7 @@ export default function CheckoutPage() {
                 {card.title == "Tip your rider" && (
                   <div className="p-2">
                     <span>{card.description}</span>
-                    <div className="flex flex-row justify-between mt-4">
+                    <div className="flex flex-row space-x-5 mt-4">
                       {card.options.map((option) => (
                         <span className="flex flex-col">
                           <button>
@@ -200,72 +200,75 @@ export default function CheckoutPage() {
                 )}
               </div>
             ))}
-            <button className="w-100 bg-partyPink p-2 text-white font-bold rounded-lg hover:bg-pink-600">
-              Place order
-            </button>
           </div>
+
           {/* Order details */}
           <div className="col-span-2">
-            <div className="p-4 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5">
-              {/* Header Section */}
-              <div className="p-2 text-lg font-bold">
-                Your order from
-                <div className="text-gray-600 font-normal">
-                  {order.restaurant.name} ({order.restaurant.area})
-                </div>
-              </div>
-
-              {/* Items List */}
-              <div className="mt-2">
-                {order.items.map((item, index) => (
-                  <div
-                    key={item.id}
-                    className="flex justify-between items-start text-sm mb-1"
-                  >
-                    <div>
-                      <span>
-                        {index + 1} x {item.name}
-                      </span>
-                    </div>
-                    <div className="font-semibold">
-                      S$ {item.price.toFixed(2)}
-                    </div>
+            <div className="flex flex-col sticky top-4">
+              <div className="p-4 border-[0.25px] border-gray-300 rounded-lg flex flex-col mb-5">
+                {/* Header Section */}
+                <div className="p-2 text-lg font-bold">
+                  Your order from
+                  <div className="text-gray-600 font-normal">
+                    {order.restaurant.name} ({order.restaurant.area})
                   </div>
-                ))}
-              </div>
+                </div>
 
-              {/* Subtotal, Delivery Fee, and Platform Fee */}
-              <div className="mt-3 border-t-[1px] border-gray-200 pt-2 text-sm">
-                <div className="flex justify-between mb-1">
-                  <span>Subtotal</span>
-                  <span>
-                    S$
-                    {order.items
-                      .reduce((total, item) => total + item.price, 0)
-                      .toFixed(2)}
+                {/* Items List */}
+                <div className="mt-2">
+                  {order.items.map((item, index) => (
+                    <div
+                      key={item.id}
+                      className="flex justify-between items-start text-sm mb-1"
+                    >
+                      <div>
+                        <span>
+                          {index + 1} x {item.name}
+                        </span>
+                      </div>
+                      <div className="font-semibold">
+                        S$ {item.price.toFixed(2)}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Subtotal, Delivery Fee, and Platform Fee */}
+                <div className="mt-3 border-t-[1px] border-gray-200 pt-2 text-sm">
+                  <div className="flex justify-between mb-1">
+                    <span>Subtotal</span>
+                    <span>
+                      S$
+                      {order.items
+                        .reduce((total, item) => total + item.price, 0)
+                        .toFixed(2)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between mb-1">
+                    <span>Standard delivery</span>
+                    <span>S$ {order.restaurant.deliveryFee.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between mb-1">
+                    <span>Platform fee</span>
+                    <span>S$ 0.40</span>
+                  </div>
+                </div>
+
+                {/* Total Section */}
+                <div className="flex justify-between mt-2 text-lg font-bold">
+                  <span>Total</span>
+                  <span className="text-xl">
+                    S$ {(order.orderTotal + 0.4).toFixed(2)}
                   </span>
                 </div>
-                <div className="flex justify-between mb-1">
-                  <span>Standard delivery</span>
-                  <span>S$ {order.restaurant.deliveryFee.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between mb-1">
-                  <span>Platform fee</span>
-                  <span>S$ 0.40</span>
-                </div>
               </div>
-
-              {/* Total Section */}
-              <div className="flex justify-between mt-2 text-lg font-bold">
-                <span>Total</span>
-                <span className="text-xl">
-                  S$ {(order.orderTotal + 0.4).toFixed(2)}
-                </span>
-              </div>
+              <button className="w-full bg-partyPink p-2 text-white font-bold rounded-lg hover:bg-pink-600">
+                Place order
+              </button>
             </div>
           </div>
         </div>
-        <div className=""></div>
+        <div></div>
       </main>
     </>
   );
