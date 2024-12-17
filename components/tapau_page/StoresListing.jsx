@@ -2,10 +2,29 @@
 
 import restaurants from "../../data/restaurants.json";
 import useRestaurantStore from "../../stores/restaurantStore";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Modal from "../../components/ui/Modal";
 
 const StoresListing = () => {
+  const router = useRouter();
+
   const setRestaurant = useRestaurantStore((state) => state.setRestaurant);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = (restaurant) => {
+    setRestaurant(restaurant);
+    setIsModalOpen(true);
+  };
+  const handleConfirmPool = () => {
+    router.push("/menu");
+    setIsModalOpen(false);
+  };
+
+  const handleViewMenu = () => {
+    // TODO: Close Modal, View Menu Clicked! Not implemented yet!
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="min-h-screen">
@@ -13,11 +32,7 @@ const StoresListing = () => {
         <h2 className="text-2xl font-semibold mb-4">Available Restaurants</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {restaurants.map((restaurant, index) => (
-            <Link
-              key={index}
-              href="/menu"
-              onClick={() => setRestaurant(restaurant)} // Set the restaurant in Zustand store
-            >
+            <div key={index} onClick={() => handleOpenModal(restaurant)}>
               <div className="bg-white border-solid border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer">
                 <img
                   src={restaurant.imageUrl}
@@ -85,10 +100,26 @@ const StoresListing = () => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </main>
+      <Modal
+        title="Are ready to order and be matched with a pool?"
+        imageSrc="/assets/images/pau_what.png"
+        imageAltDesc="Paupau looking like he is waiting for an answer"
+        description="This is a reusable modal that can show dynamic content such as images, title, and options."
+        optionOne={{
+          label: "Yes, add me to the pool!",
+          onClick: handleConfirmPool,
+        }}
+        optionTwo={{
+          label: "No, I just want to browse first",
+          onClick: handleViewMenu,
+        }}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 };

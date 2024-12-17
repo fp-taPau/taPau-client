@@ -42,7 +42,7 @@ const MenuItems = ({ restaurant }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {restaurant.items.map((item, index) => (
             <div
-              className="relative bg-zinc-50 p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer hover:bg-pink-100"
+              className="relative bg-zinc-50 p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer hover:bg-secondaryPink"
               role="button"
               tabIndex="0"
               onClick={() => console.log("Div clicked!")}

@@ -39,7 +39,7 @@ const Cart = () => {
       </p>
       <Link
         href="/checkout"
-        className="flex justify-center font-bold text-[14px] text-[#fefefe] bg-[#c4c4c4] rounded-lg p-2 py-3 w-full mt-3 hover:cursor-pointer"
+        className="flex justify-center font-bold text-[14px] text-[#fefefe] bg-[#c4c4c4] rounded-lg p-2 py-3 w-full mt-3 cursor-pointer"
       >
         Review Payment and address
       </Link>
