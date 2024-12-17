@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Cancellation from "../../components/ui/Cancellation";
 import { useState } from "react";
 import { getRestaurantByID } from "@/api/tapau/tapau";
+import useCartStore from "@/stores/cartStore";
 
 const Menu = () => {
   const router = useRouter();
@@ -16,10 +17,12 @@ const Menu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const restaurant = useRestaurantStore((state) => state.restaurant);
+  const resetCart = useCartStore((state) => state.resetCart);
 
   const handleCancellation = () => {
-    router.push("/");
     // TODO: Add API Call to count cancellation for user
+    resetCart();
+    router.push("/");
     setIsModalOpen(false);
   };
 
