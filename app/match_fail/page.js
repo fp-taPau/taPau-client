@@ -7,7 +7,7 @@ import Cancellation from "../../components/ui/Cancellation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function matchPending() {
+export default function matchFail() {
   const router = useRouter();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,27 +23,40 @@ export default function matchPending() {
       <Header logoUrl="/assets/images/header-logo.png" />
       <main className="p-5 w-11/12 items-center mx-auto flex flex-col justify-center mb-20">
         <div className="-ml-8 flex flex-row items-start w-full px-5 my-10 space-x-5">
-          <BackButton onClick={() => setIsModalOpen(true)} />
+          {/* <BackButton onClick={() => setIsModalOpen(true)} /> */}
           {/* TODO: Call cancellation button again here */}
-          <h1 className="text-black font-bold flex flex-col justify-start text-4xl -mt-2">
-            <span className="relative after:content-[''] after:absolute after:animate-dots">Matching in progress</span>
-          </h1>
+          {/* <h1 className="text-black font-bold flex flex-col justify-start text-4xl -mt-2">
+            Matches Found!
+          </h1> */}
         </div>
         <div className="py-8 bg-secondaryPink w-11/12 flex flex-col items-center justify-center rounded-lg shadow-md">
+            <h2 className="text-4xl font-extrabold text-partyPink">
+                No available matches
+                <span className="relative after:content-[''] after:absolute after:animate-dots"></span>
+            </h2>
+            {/* change image link */}
           <img
-            src="/assets/images/curious_pau.png"
+            src="/assets/images/hungry_pau.png"
             className="w-100 h-100 items-center"
           />
-          <h2 className="text-4xl font-extrabold text-partyPink">
-            Hang Tight!
-          </h2>
-
-          <CountdownTimer />
+        
           <p className="text-secondaryText text-center mt-2">
-            We are currently looking for a match for you!
+            Sorry, it's taking longer than usual to find a match.
             <br />
-            Your payment will be held during this time.
+            Would you like to Match Again or Proceed to Checkout?
           </p>
+          <p className="text-secondaryText text-center mt-2 font-light italic">
+            (Standard Delivery Fees apply if you checkout now)
+          </p>
+
+          <div className="flex justify-center items-center space-x-6 my-6">
+          <button className="bg-partyPink text-white text-center font-bold rounded-lg hover:bg-pink-600 px-10 py-3 my-6">
+            Checkout Now
+            </button>
+          <button className="bg-partyPink text-white text-center font-bold rounded-lg hover:bg-pink-600 px-18 py-3 my-6">
+            Match Again
+            </button>
+          </div>
         </div>
         <Cancellation
           title="We are still finding you a match, are you sure you want to leave?"
