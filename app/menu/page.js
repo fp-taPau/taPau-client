@@ -96,7 +96,7 @@ const Menu = () => {
           <MenuItems restaurant={restaurant} />
         </div>
         <div className="col-span-1 mt-8 sticky top-0">
-          <Cart />
+          <Cart restaurant={restaurant} />
         </div>
       </section>
       <Cancellation
