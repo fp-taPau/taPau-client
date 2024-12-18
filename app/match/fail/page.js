@@ -3,8 +3,11 @@
 import Header from "../../../components/Header";
 import Cancellation from "../../../components/ui/Cancellation";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { incrementCustomerCancellation, incrementCustomerFailure } from "@/api/tapau/tapau";
+import { useState, useEffect } from "react";
+import {
+  incrementCustomerCancellation,
+  incrementCustomerFailure,
+} from "@/api/tapau/tapau";
 
 export default function MatchFail() {
   const router = useRouter();
@@ -14,23 +17,23 @@ export default function MatchFail() {
   useEffect(() => {
     // Fetch the order data when the component mounts
     incrementCustomerFailure("1").then((data) => {
-      console.log("Customer's matching has failed")
-      // console.log(data)
-    })
-  }, );
+      console.log("Customer's matching has failed");
+    });
+  });
 
   // run this when the customer willingly cancels and exits a matching pool
   const handleCancellation = () => {
     router.push("/");
     // TODO: Add API Call to count cancellation for user
     incrementCustomerCancellation("1", "1").then((data) => {
-      console.log("Customer cancel matching in pool")
+      console.log("Customer cancel matching in pool");
       // console.log(data)
       // save the cancelled data returned into the store
-      const setCancelledRestaurants = useCancelledStore.getState().setCancelledRestaurants;
+      const setCancelledRestaurants =
+        useCancelledStore.getState().setCancelledRestaurants;
       // Save the extracted data into the Zustand store
       setCancelledRestaurants(data.cancellation);
-    })
+    });
     setIsModalOpen(false);
   };
 

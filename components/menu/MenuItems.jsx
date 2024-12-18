@@ -51,6 +51,7 @@ const MenuItems = ({ restaurant }) => {
             <div
               className="relative bg-zinc-50 p-5 border-[0.25px] border-gray-300 rounded-lg flex flex-col items-center transition-transform transform hover:scale-105 cursor-pointer hover:bg-secondaryPink"
               role="button"
+              key={index + "-" + item.name}
               tabIndex="0"
               onClick={() => {
                 handleAddToCart(item);

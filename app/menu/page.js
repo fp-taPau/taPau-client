@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import Header from "../../components/Header";
 import MenuItems from "../../components/menu/MenuItems";
@@ -8,35 +9,44 @@ import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import Cancellation from "../../components/ui/Cancellation";
 import useCartStore from "@/stores/cartStore";
-import { useState, useEffect } from "react";
 import { getRestaurantByID } from "@/api/tapau/tapau";
-import { useParams } from "react-router-dom";
 import { incrementCustomerCancellation } from "@/api/tapau/tapau";
 import useCancelledStore from "@/stores/cancelledStore";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Menu = () => {
   const router = useRouter();
+  const pathname = usePathname();
+  const previousPath = useRef(pathname);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const restaurant = useRestaurantStore((state) => state.restaurant);
   const resetCart = useCartStore((state) => state.resetCart);
 
+  useEffect(() => {
+    if (previousPath.current !== pathname) {
+      setIsModalOpen(true);
+      previousPath.current = pathname;
+    }
+  }, [pathname]);
+
   const handleCancellation = () => {
     // TODO: Add API Call to count cancellation for user
     resetCart();
-    router.push("/");
 
     incrementCustomerCancellation("1", "1").then((data) => {
-      console.log("User cancel matching in pool")
+      console.log("User cancel matching in pool");
       // console.log(data)
       // save the cancelled data returned into the store
-      const setCancelledRestaurants = useCancelledStore.getState().setCancelledRestaurants;
+      const setCancelledRestaurants =
+        useCancelledStore.getState().setCancelledRestaurants;
       // Save the extracted data into the Zustand store
       setCancelledRestaurants(data.cancellation);
+    });
 
-    })
-
+    router.push("/");
     setIsModalOpen(false);
   };
 
