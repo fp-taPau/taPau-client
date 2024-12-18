@@ -7,6 +7,7 @@ import useRestaurantStore from "../../stores/restaurantStore";
 import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import Cancellation from "../../components/ui/Cancellation";
+import useCartStore from "@/stores/cartStore";
 import { useState, useEffect } from "react";
 import { getRestaurantByID } from "@/api/tapau/tapau";
 import { useParams } from "react-router-dom";
@@ -19,10 +20,13 @@ const Menu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const restaurant = useRestaurantStore((state) => state.restaurant);
+  const resetCart = useCartStore((state) => state.resetCart);
 
   const handleCancellation = () => {
-    router.push("/");
     // TODO: Add API Call to count cancellation for user
+    resetCart();
+    router.push("/");
+
     incrementCustomerCancellation("1", "1").then((data) => {
       console.log("User cancel matching in pool")
       // console.log(data)
@@ -32,6 +36,7 @@ const Menu = () => {
       setCancelledRestaurants(data.cancellation);
 
     })
+
     setIsModalOpen(false);
   };
 
@@ -108,8 +113,7 @@ const Menu = () => {
           <MenuItems restaurant={restaurant} />
         </div>
         <div className="col-span-1 mt-8 sticky top-0">
-          <Cart/>
-          <Cart/>
+          <Cart restaurant={restaurant} />
         </div>
       </section>
       <Cancellation
@@ -118,11 +122,11 @@ const Menu = () => {
         imageAltDesc="Paupau looking like he is waiting for an answer"
         description="Heads up! If you leave this matching session, your cart will be cleared and the restaurant might not remain available as an option."
         optionOne={{
-          label: "Yes, I want to leave.",
+          label: "Yes, leave now",
           onClick: handleCancellation,
         }}
         optionTwo={{
-          label: "No, keep me in the pool.",
+          label: "No, stay in the session",
           onClick: () => setIsModalOpen(false),
         }}
         isOpen={isModalOpen}

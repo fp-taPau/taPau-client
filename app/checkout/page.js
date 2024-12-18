@@ -4,111 +4,25 @@ import Header from "../../components/Header";
 import details from "../../data/checkoutDetails.json";
 import orders from "../../data/order.json";
 import { useRouter } from "next/navigation";
-import Card from "@/components/card/Card";
 import { getOrderByID } from "@/api/tapau/tapau";
 import { useState, useEffect } from "react";
 
 export default function CheckoutPage() {
   const router = useRouter();
 
-  // var order = orders[0];
-
-  var details = [
-    {
-      title: "Delivery address",
-      titleButton: "Change",
-      addressName: "Meeting location",
-      address: "3 River Valley Road Singapore 179024",
-      noteToDriver: "",
-      contactlessDelivery: false,
-    },
-    {
-      title: "Delivery options",
-      options: [
-        {
-          name: "Standard",
-          time: "45 - 65 mins",
-          selected: true,
-        },
-        {
-          name: "Priority",
-          time: "40 - 55 mins",
-          additionalCost: 2.5,
-          selected: false,
-        },
-        {
-          name: "Scheduled",
-          time: "Select a date and time",
-          selected: false,
-        },
-      ],
-    },
-    {
-      title: "Personal details",
-      titleButton: "Edit",
-      name: "John Smith",
-      email: "john.smith@gmail.com",
-      mobile: "+65 91234567",
-    },
-    {
-      title: "Payment",
-      titleButton: "Show all",
-      options: [
-        {
-          selected: true,
-          type: "pandapay",
-          balance: 50.0,
-          cardNumber: "**** 1234",
-        },
-        {
-          type: "Visa",
-          cardNumber: "**** 1234",
-        },
-        {
-          type: "Visa",
-          cardNumber: "**** 4321",
-        },
-        {
-          type: "Paylah!",
-          cardNumber: "**** 0987",
-        },
-      ],
-    },
-    {
-      title: "Tip your rider",
-      description: "100% of your tips goes to the riders.",
-      options: [
-        {
-          name: "Not now",
-          amount: 0,
-        },
-        {
-          name: "S$1.00",
-          amount: 1,
-        },
-        {
-          name: "S$2.00",
-          amount: 2,
-        },
-        {
-          name: "S$3.00",
-          amount: 3,
-        },
-        {
-          name: "S$4.00",
-          amount: 4,
-        },
-      ],
-    },
-  ];
-  const [order, setOrder] = useState(null);
+  const [order, setOrder] = useState(orders[0]);
+  
   useEffect(() => {
     // Fetch the order data when the component mounts
-    getOrderByID("1", "a1b2-c3d4-e5f6").then((data) => {
-      console.log(data)
-      setOrder(data)
-    })
-  }, []);
+    getOrderByID("1", "a1b2-c3d4-e5f6")
+      .then((data) => {
+        console.log(data);
+        setOrder(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }, []);
 
   return (
     <>
@@ -214,9 +128,9 @@ export default function CheckoutPage() {
                 )}
 
                 {card.title == "Payment" && (
-                  <div className="p-2">
+                  <div className="p-2" key={card.title}>
                     <div className="flex flex-col w-full p-2">
-                      {card.options.map((option) => (
+                      {card.options.map((option, idx) => (
                         <div
                           key={option.name}
                           className="flex space-x-4 p-3 content-center border-1 border-black rounded-lg mb-2"

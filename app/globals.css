@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Agrandir";
+  src: url("../public/fonts/Agrandir-Regular.otf");
+}
+
+@font-face {
+  font-family: "TyPAUgraphy";
+  src: url("../public/fonts/fp_tyPAUgraphy_thin_v1.1.otf");
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,7 +34,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: sans-serif, Arial, Helvetica;
+  font-family: sans-serif, agrandir, Arial, Helvetica;
 }
 
 /* Cuisine Carousel */

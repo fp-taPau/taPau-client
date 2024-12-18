@@ -126,14 +126,14 @@ const StoresListing = () => {
         title="Are you ready to order and be matched with a pool?"
         imageSrc="/assets/images/pau_what.png"
         imageAltDesc="Paupau looking like he is waiting for an answer"
-        description="By choosing to match, you'll be connected with other available customers."
+        description="Savour the savings! By choosing to match, you'll be connected with other available customers to pool your orders from nearby restaurants together for a discounted delivery fee. "
         optionOne={{
-          label: "Yes, add me to the pool!",
-          onClick: handleConfirmPool,
+          label: "No, I need to browse first",
+          onClick: handleViewMenu,
         }}
         optionTwo={{
-          label: "No, I just want to browse first",
-          onClick: handleViewMenu,
+          label: "Yes, count me in!",
+          onClick: handleConfirmPool,
         }}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

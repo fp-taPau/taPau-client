@@ -7,6 +7,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        agrandir: ["Agrandir", "sans-serif"],
+        typaugraphy: ["TyPAUgraphy", "sans-serif"],
+      },
       borderWidth: {
         1: "1px",
       },
@@ -23,6 +27,11 @@ export default {
         50: "12.5rem", // adds spacing of 50 (200px)
         55: "13.75rem", // adds spacing of 55 (220px)
         100: "25rem", // adds spacing of 100 (400px)
+        110: "27.5rem", // adds spacing of 110 (440px)
+        120: "30rem", // adds spacing of 120 (480px)
+        140: "35rem", // adds spacing of 140 (560px)
+        160: "40rem", // adds spacing of 160 (640px)
+        180: "45rem", // adds spacing of 180 (720px)
       },
       colors: {
         background: "var(--background)",
