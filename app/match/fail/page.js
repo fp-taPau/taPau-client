@@ -69,7 +69,7 @@ export default function MatchFail() {
                 checkout*?
               </p>
             ) : (
-              <p className="text-secondaryText text-left text-lg">
+              <p className="text-secondaryText text-left text-lg mr-16">
                 We're sorry it's a little taking longer than usual to find you a
                 match, but would still like to thank you for taking the step to
                 be a part of Foodpanda's mission to reduce food wastage.
