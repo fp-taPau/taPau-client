@@ -24,7 +24,7 @@ const getAvailableRestaurants = async () => {
     });
   } catch (error) {
     console.error("API call failed:", error);
-    return restaurants;
+    // return restaurants;
   }
 };
 
@@ -75,7 +75,6 @@ const incrementCustomerFailure = async (customerId) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(payload),
   });
 };
 

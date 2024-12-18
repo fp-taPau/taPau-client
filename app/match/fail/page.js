@@ -8,32 +8,35 @@ import {
   incrementCustomerCancellation,
   incrementCustomerFailure,
 } from "@/api/tapau/tapau";
+import useFailureStore from "@/stores/failureStore";
 
 export default function MatchFail() {
   const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const addFailureCount = useFailureStore.getState().addFailureCount;
+  const failures = useFailureStore((state) => state.failures);
 
   // run this when the customer is notified that their matching has failed
   useEffect(() => {
+    addFailureCount();
     // Fetch the order data when the component mounts
     incrementCustomerFailure("1").then((data) => {
       console.log("Customer's matching has failed");
     });
-  });
+  }, []);
 
   // run this when the customer willingly cancels and exits a matching pool
   const handleCancellation = () => {
-    router.push("/");
     // TODO: Add API Call to count cancellation for user
     incrementCustomerCancellation("1", "1").then((data) => {
       console.log("Customer cancel matching in pool");
-      // console.log(data)
       // save the cancelled data returned into the store
       const setCancelledRestaurants =
         useCancelledStore.getState().setCancelledRestaurants;
       // Save the extracted data into the Zustand store
       setCancelledRestaurants(data.cancellation);
     });
+    router.push("/delivery/success");
     setIsModalOpen(false);
   };
 
@@ -57,13 +60,24 @@ export default function MatchFail() {
             <h1 className="text-[8.5rem] leading-none tracking-wide font-extrabold text-partyPink font-typaugraphy text-left">
               No available matches
             </h1>
-            <p className="text-secondaryText text-left text-lg">
-              We're sorry it's a little taking longer than usual to find you a
-              match.
-              <br />
-              Would you like to try to find a match again or proceed to
-              checkout*?
-            </p>
+            {failures <= 3 ? (
+              <p className="text-secondaryText text-left text-lg">
+                We're sorry it's a little taking longer than usual to find you a
+                match.
+                <br />
+                Would you like to try to find a match again or proceed to
+                checkout*?
+              </p>
+            ) : (
+              <p className="text-secondaryText text-left text-lg">
+                We're sorry it's a little taking longer than usual to find you a
+                match, but would still like to thank you for taking the step to
+                be a part of Foodpanda's mission to reduce food wastage.
+                <br />
+                Would you like to try to find a match again or proceed to
+                checkout*?
+              </p>
+            )}
             <div className="flex justify-start items-center space-x-6">
               <button
                 className="bg-partyPink text-white text-center font-bold rounded-lg hover:bg-pink-600 w-60 py-3"
@@ -79,9 +93,15 @@ export default function MatchFail() {
               </button>
             </div>
           </div>
-          <p className="absolute text-secondaryText text-sm font-light italic bottom-25 right-28">
-            *Standard Delivery Fees apply if you checkout now.
-          </p>
+          {failures <= 2 ? (
+            <p className="absolute text-secondaryText text-sm font-light italic bottom-25 right-28">
+              *Standard Delivery Fees apply if you checkout now.
+            </p>
+          ) : (
+            <p className="absolute text-secondaryText text-sm font-light italic bottom-25 right-28">
+              *Standard Delivery Fees are halved if you checkout now.
+            </p>
+          )}
         </div>
 
         {/* Cancellation Modal */}
