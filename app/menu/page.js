@@ -7,9 +7,12 @@ import useRestaurantStore from "../../stores/restaurantStore";
 import BackButton from "@/components/ui/BackButton";
 import { useRouter } from "next/navigation";
 import Cancellation from "../../components/ui/Cancellation";
-import { useState } from "react";
-import { getRestaurantByID } from "@/api/tapau/tapau";
 import useCartStore from "@/stores/cartStore";
+import { useState, useEffect } from "react";
+import { getRestaurantByID } from "@/api/tapau/tapau";
+import { useParams } from "react-router-dom";
+import { incrementCustomerCancellation } from "@/api/tapau/tapau";
+import useCancelledStore from "@/stores/cancelledStore";
 
 const Menu = () => {
   const router = useRouter();
@@ -23,6 +26,17 @@ const Menu = () => {
     // TODO: Add API Call to count cancellation for user
     resetCart();
     router.push("/");
+
+    incrementCustomerCancellation("1", "1").then((data) => {
+      console.log("User cancel matching in pool")
+      // console.log(data)
+      // save the cancelled data returned into the store
+      const setCancelledRestaurants = useCancelledStore.getState().setCancelledRestaurants;
+      // Save the extracted data into the Zustand store
+      setCancelledRestaurants(data.cancellation);
+
+    })
+
     setIsModalOpen(false);
   };
 

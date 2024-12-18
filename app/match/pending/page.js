@@ -15,6 +15,14 @@ export default function matchPending() {
   const handleCancellation = () => {
     router.push("/");
     // TODO: Add API Call to count cancellation for user
+    incrementCustomerCancellation("1", "1").then((data) => {
+      console.log("User cancel matching in pool")
+      // console.log(data)
+      // save the cancelled data returned into the store
+      const setCancelledRestaurants = useCancelledStore.getState().setCancelledRestaurants;
+      // Save the extracted data into the Zustand store
+      setCancelledRestaurants(data.cancellation);
+    })
     setIsModalOpen(false);
   };
 

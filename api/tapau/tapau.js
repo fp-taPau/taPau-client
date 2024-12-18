@@ -15,7 +15,7 @@ const apiFetch = async (url, options = {}) => {
 
   // Get all available restaurants
 const getAvailableRestaurants = async () => {
-    const url = `${BASE_URL}/restaurants/?area=Bedok`;
+    const url = `${BASE_URL}/restaurants/`;
     return await apiFetch(url, {
       method: "GET",
     });
@@ -55,6 +55,37 @@ const getAllOrders = async (customerId) => {
       body: JSON.stringify(payload), // Send payload as JSON
     });
   };
+
+  const getCustomerFailureNumber = async (customerId) => {
+    const url = `${BASE_URL}/customers/${customerId}/failures`;
+    return await apiFetch(url, { method: "GET" });
+  };
+
+  const incrementCustomerFailure = async (customerId) => {
+    const url = `${BASE_URL}/customers/${customerId}/increment_failure`;
+    return await apiFetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+  };
+
+  const getCustomerCancellationNumber = async (customerId) => {
+    const url = `${BASE_URL}/customers/${customerId}/cancellation`;
+    return await apiFetch(url, { method: "GET" });
+  };
+
+  const incrementCustomerCancellation = async (customerId, restaurantId) => {
+    const url = `${BASE_URL}/customers/${customerId}/restaurants/${restaurantId}/increment_cancellation`;
+    return await apiFetch(url, { method: "POST" });
+  };
+
+  const getCustomerCart = async (customerId) => {
+    const url = `${BASE_URL}/customers/${customerId}/cart`;
+    return await apiFetch(url, { method: "GET" });
+  };
   
   export {
     getAvailableRestaurants,
@@ -62,4 +93,9 @@ const getAllOrders = async (customerId) => {
     getAllOrders,
     getOrderByID,
     addToPool,
-  };
+    getCustomerFailureNumber,
+    incrementCustomerFailure,
+    getCustomerCancellationNumber,
+    incrementCustomerCancellation,
+    getCustomerCart,
+};

@@ -11,7 +11,7 @@ export default function CheckoutPage() {
   const router = useRouter();
 
   const [order, setOrder] = useState(orders[0]);
-
+  
   useEffect(() => {
     // Fetch the order data when the component mounts
     getOrderByID("1", "a1b2-c3d4-e5f6")
@@ -22,7 +22,7 @@ export default function CheckoutPage() {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+    }, []);
 
   return (
     <>
